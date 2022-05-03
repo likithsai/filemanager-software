@@ -1,5 +1,6 @@
 //  utils.js
 //  contains utility functions
+
 const os = require("os");
 
 const bytesToSizes = function(bytes) {
