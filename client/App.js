@@ -12,7 +12,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={[ Styles.app, Styles.flex1 ]}>
-      <StatusBar />
+      <StatusBar animated={true} backgroundColor="#61dafb" />
       <Header title="Filemanager" onButtonPress={() => this.RBSheet.open()} />
       <View style={{ flex: 1 }}>
         <Gridlist
