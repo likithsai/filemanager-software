@@ -14,6 +14,7 @@ const Gridlist = (props) => {
             <RefreshControl
               refreshing={isRefreshing}
               title="Refresh"
+              colors={['green', 'white']}
               onRefresh={() => {
                 console.log('_onRefresh');
                 setIsRefreshing(false);
@@ -40,7 +41,7 @@ const Gridlist = (props) => {
         keyExtractor={(item, index) => index.toString()}
         ListEmptyComponent={() => (
             <View style={{ flexDirection: 'column', alignItems:'center', flex: 1, width: '100%', height: '100%' }}>
-                <Ionicons name="cloud" size={60} color="rgba(0, 0, 0, 0.5)" style={{ marginBottom: 15, elevation: 3 }} />
+                <Ionicons name="cloud" size={60} color="green" style={{ marginBottom: 15, elevation: 3 }} />
                 <Text style={{ fontWeight: 'bold', color: 'rgba(0, 0, 0, 0.5)' }}>No Servers added, Click to add server</Text>
             </View>
         )}

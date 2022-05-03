@@ -15,7 +15,7 @@ const Header = (props) => {
                 <Text style={[ Styles.fwBold, Styles.fs20 ]}>{props.title}</Text>
             </View>
             <View style={[ Styles.row, Styles.justifyBetween, Styles.itemCenter ]}>
-                <TouchableOpacity style={[ Styles.row, Styles.fWrap, Styles.itemCenter ]}>
+                <TouchableOpacity style={[ Styles.row, Styles.fWrap, Styles.itemCenter ]} onPress={props.onButtonPress}>
                     <Ionicons name="add" size={30} color="green" />
                 </TouchableOpacity>
             </View>

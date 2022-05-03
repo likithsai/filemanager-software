@@ -1,6 +1,9 @@
 import { Appearance } from 'react-native';
 
 const darkTheme = {
+    appBackground: '#0f0f0f',
+    cardBackground: '#fff',
+    cardShadowColor: '#717171',
 };
 
 const lightTheme = {
