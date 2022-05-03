@@ -40,8 +40,9 @@ const Gridlist = (props) => {
         numColumns={2}
         keyExtractor={(item, index) => index.toString()}
         ListEmptyComponent={() => (
-            <View style={{ flexDirection: 'column', alignItems:'center', flex: 1, width: '100%', height: '100%' }}>
+            <View style={{ flexDirection: 'column', alignItems:'center', flex: 1, width: '100%', height: '100%', marginTop: '60%' }}>
                 <Ionicons name="cloud" size={60} color="green" style={{ marginBottom: 15, elevation: 3 }} />
+                <Text style={{ fontWeight: 'bold', color: 'rgba(0, 0, 0, 0.5)' }}>No Servers added !</Text>
                 <Text style={{ fontWeight: 'bold', color: 'rgba(0, 0, 0, 0.5)' }}>No Servers added, Click to add server</Text>
             </View>
         )}

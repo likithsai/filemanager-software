@@ -41,15 +41,14 @@ export default function App() {
               elevation: 2
             }
         }}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', width: '100%', borderBottomColor: '#ccc', borderBottomWidth: 0.5, paddingBottom: 20, marginBottom: 20 }}>
-              <Ionicons name="cloud" size={30} color="green" style={{ marginRight: 10 }} />
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', width: '100%', marginBottom: 20 }}>
               <Text style={{ fontWeight: 'bold', color: '#000', fontSize: 20 }}>Add Server</Text>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
             <View>
                 <Text style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 10 }}>Server Name:</Text>
                 <TextInput
-                  style={{ paddingBottom: 10, fontSize: 15 }}
+                  style={{ paddingBottom: 10, fontSize: 15, width: '100%' }}
                   onChangeText={setServerName}
                   value={serverName}
                   placeholder="Ex. MyServer"
@@ -60,7 +59,7 @@ export default function App() {
             <View>
                 <Text style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 10 }}>Server Address:</Text>
                 <TextInput
-                  style={{ paddingBottom: 10, fontSize: 15 }}
+                  style={{ paddingBottom: 10, fontSize: 15, width: '100%' }}
                   onChangeText={setServerAddress}
                   value={serverAddress}
                   placeholder="Ex. 192.168.0.1"
