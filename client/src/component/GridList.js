@@ -42,8 +42,8 @@ const Gridlist = (props) => {
         ListEmptyComponent={() => (
             <View style={{ flexDirection: 'column', alignItems:'center', flex: 1, width: '100%', height: '100%', marginTop: '60%' }}>
                 <Ionicons name="cloud" size={60} color="green" style={{ marginBottom: 15, elevation: 3 }} />
-                <Text style={{ fontWeight: 'bold', color: 'rgba(0, 0, 0, 0.5)' }}>No Servers added !</Text>
-                <Text style={{ fontWeight: 'bold', color: 'rgba(0, 0, 0, 0.5)' }}>No Servers added, Click to add server</Text>
+                <Text style={{ fontWeight: 'bold', color: 'rgba(0, 0, 0, 1)', marginBottom: 5 }}>No Servers added !</Text>
+                <Text style={{ fontWeight: 'bold', color: 'rgba(0, 0, 0, 0.5)' }}>Click to '+' button to add server</Text>
             </View>
         )}
         />
