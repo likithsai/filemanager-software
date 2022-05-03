@@ -9,14 +9,16 @@ import Styles from '../theme/Styles';
 
 const Header = (props) => {
     return (
-        <Card style={[ Styles.row, Styles.justifyBetween, Styles.itemCenter, Styles.height70 ]}>
+        <Card style={[ Styles.row, Styles.justifyBetween, Styles.itemCenter, Styles.height70, Styles.cardBottomLine ]}>
             <View style={[ Styles.row, Styles.itemCenter]}>
                 <Ionicons name="folder" size={25} color="green" style={[ Styles.mr10 ]} />
                 <Text style={[ Styles.fwBold, Styles.fs20 ]}>{props.title}</Text>
             </View>
-            <TouchableOpacity style={[ Styles.row, Styles.fWrap, Styles.itemCenter ]}>
-                <Ionicons name="md-settings" size={25} color="green" />
-            </TouchableOpacity>
+            <View style={[ Styles.row, Styles.justifyBetween, Styles.itemCenter ]}>
+                <TouchableOpacity style={[ Styles.row, Styles.fWrap, Styles.itemCenter ]}>
+                    <Ionicons name="add" size={30} color="green" />
+                </TouchableOpacity>
+            </View>
         </Card>
     );
 }

@@ -49,15 +49,12 @@ const Styles = StyleSheet.create({
 
     //  card
     card: {
-        shadowOffset: {
-            width: -2,
-            height: 4
-        },
-        shadowOpacity: 0.5,
-        shadowRadius: 3,
-        elevation: 3,
-        backgroundColor: COLORS.cardBackground,
-        shadowColor: COLORS.cardShadowColor
+        elevation: 2,
+        backgroundColor: COLORS.cardBackground
+    },
+    cardBottomLine: {
+        borderBottomWidth: 1,
+        borderBottomColor: '#ccc'
     },
     p15: {
         padding: 15
