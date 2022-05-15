@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "expo": "cd filemanager-client/ && expo start",
     "android": "cd filemanager-client/ && expo start --android",
@@ -20,6 +20,7 @@
     "express": "^4.17.3",
     "jquery": "^3.6.0",
     "mime-types": "^2.1.35",
+    "nodemon": "^2.0.16",
     "popper.js": "^1.16.1",
     "qrcode-terminal": "^0.12.0"
   }
