@@ -3,12 +3,12 @@ import React from 'react';
 
 const Header = (props) => {
     return (
-        <header className="shadow-sm">
-            <div className="bg-dark collapse" id="navbarHeader">
+        <header className="shadow-sm sticky-top bg-dark">
+            <div className="collapse" id="navbarHeader">
                 <div className="container">
                 <div className="row">
                     <div className="col-sm-12 col-md-12 py-4">
-                    <p className="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                    <p className="text-muted mb-0">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
                     </div>
                 </div>
                 </div>
