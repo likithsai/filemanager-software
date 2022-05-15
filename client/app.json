@@ -1,8 +1,0 @@
-{
-  "ios": {
-    "bundleIdentifier": "filemanager"
-  },
-  "android": {
-    "package": "com.likithsai92005.filemanagerclient"
-  }
-}
