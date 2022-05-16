@@ -8,7 +8,27 @@ const Header = (props) => {
                 <div className="container">
                 <div className="row">
                     <div className="col-sm-12 col-md-12 py-4">
-                    <p className="text-muted mb-0">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                    {/* <p className="text-muted mb-2 px-0">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p> */}
+                    <ul class="list-group">
+                        <li class="list-group-item text-white bg-dark px-0">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span>Images</span>
+                                <span class="badge bg-secondary">12</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item text-white bg-dark px-0">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span>Videos</span>
+                                <span class="badge bg-secondary">463</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item text-white bg-dark px-0">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span>PDF</span>
+                                <span class="badge bg-secondary">7</span>
+                            </div>
+                        </li>
+                    </ul>
                     </div>
                 </div>
                 </div>
