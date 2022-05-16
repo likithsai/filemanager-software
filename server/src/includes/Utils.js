@@ -2,6 +2,7 @@
 //  contains utility functions
 
 const os = require("os");
+const { myLogger } = require("./Files.js");
 
 const bytesToSizes = function(bytes) {
     var sizes = [ 'bytes', 'KB', 'MB', 'GB', 'TB' ];
@@ -23,12 +24,9 @@ const uniqueArray = function(arr, key) {
 //  function to print log
 const printLog = function(req) {
     let logs = [];
-    logs.push({
-        ip: req.ip,
-        useragent: req.headers['user-agent'],
-        time: Date.now()
-    });
-    console.log('\x1b[44m%s\x1b[0m', 'LOG', '\t', JSON.stringify(logs));
+    logs.push({ ip: req.ip, useragent: req.headers['user-agent'], time: Date.now() });
+    // console.log('\x1b[44m%s\x1b[0m', 'LOG', '\t', JSON.stringify(logs));
+    myLogger.log(JSON.stringify(logs));
 }
 
 module.exports = {

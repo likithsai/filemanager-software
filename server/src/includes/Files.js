@@ -4,6 +4,7 @@
 var fs = require('fs'), 
 path = require('path'),
 crypto = require('crypto');
+const { Console } = require("console");
 
 //  function to recursively list all the files in the folders and subfolders
 const walkSync = function(currentDirPath, callback) {    
@@ -42,6 +43,11 @@ const calculateHashOfFile = function(path) {
     return crypto.createHash('sha1').update(file).digest("hex");
 }
 
+//  function to save log data to files
+const myLogger = new Console({
+    stdout: fs.createWriteStream("logs/logs.txt")
+});
+
 module.exports = {
-    walkSync, existFolder, createFolder, calculateHashOfFile
+    walkSync, existFolder, createFolder, calculateHashOfFile, myLogger
 }

@@ -48,16 +48,12 @@ if (process.argv[2] !== undefined) {
     });
 
     app.get('/', function(request, response){
-        if(process.argv[3] == "--print-log") {
-            utils.printLog(request);
-        }
+        utils.printLog(request);
         response.sendFile(path.join(__dirname + '/views/index.html'));
     });
 
     app.get('*', function(request, response, next){
-        if(process.argv[3] === "--print-log") {
-            utils.printLog(request);
-        }
+        utils.printLog(request);
         next();
     });
 
