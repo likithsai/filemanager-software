@@ -4,15 +4,15 @@ import React from 'react';
 const Header = (props) => {
     return (
         <header className="shadow-sm sticky-top bg-dark">
-            <div className="collapse border-bottom" id="navbarHeader">
+            <div className="collapse bb-orange" id="navbarHeader">
                 <div className="container">
                     <div className="row px-3">
                         <div className="col-sm-12 col-md-12 pb-4 pt-5">
-                            <div className="active-cyan-4 mb-4">
+                            <div className="active-cyan-4 mb-3">
                                 <input className="form-control" type="text" placeholder="Search for Images, Videos, PDF, etc." aria-label="Search for Images, Videos, PDF, etc." />
                             </div>    
                             <ul className="list-group">
-                                <li className="list-group-item text-white bg-dark px-0">
+                                <li className="list-group-item text-white bg-dark px-0 border-0">
                                     <div className="d-flex align-items-center justify-content-between">
                                         <a href="/images" className="text-white text-decoration-none">
                                             <i className="bi bi-images me-3 text-warning"></i>
@@ -24,7 +24,7 @@ const Header = (props) => {
                                         </div>
                                     </div>
                                 </li>
-                                <li className="list-group-item text-white bg-dark px-0">
+                                <li className="list-group-item text-white bg-dark px-0 border-0">
                                     <div className="d-flex align-items-center justify-content-between">
                                         <a href="/videos" className="text-white text-decoration-none">
                                             <i className="bi bi-camera-reels me-3 text-warning"></i>
@@ -36,7 +36,7 @@ const Header = (props) => {
                                         </div>
                                     </div>
                                 </li>
-                                <li className="list-group-item text-white bg-dark px-0">
+                                <li className="list-group-item text-white bg-dark px-0 border-0">
                                     <div className="d-flex align-items-center justify-content-between">
                                         <a href="/pdfs" className="text-white text-decoration-none">
                                             <i className="bi bi-file-earmark-pdf me-3 text-warning"></i>
@@ -44,6 +44,32 @@ const Header = (props) => {
                                         </a>
                                         <div className="d-flex align-item-center badge bg-warning">
                                             <span className="me-2 text-dark">7</span>
+                                            <i className="bi bi-arrow-right-circle-fill text-dark"></i>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul className="list-group mt-4">
+                                <li className="list-group-item text-white bg-dark px-0 border-0">
+                                    <div className="d-flex align-items-center justify-content-between">
+                                        <a href="/pdfs" className="text-white text-decoration-none">
+                                            <i className="bi bi-layers me-3 text-warning"></i>
+                                            <span>Categories</span>
+                                        </a>
+                                        <div className="d-flex align-item-center badge bg-warning">
+                                            <span className="me-2 text-dark">1</span>
+                                            <i className="bi bi-arrow-right-circle-fill text-dark"></i>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li className="list-group-item text-white bg-dark px-0 border-0">
+                                    <div className="d-flex align-items-center justify-content-between">
+                                        <a href="/pdfs" className="text-white text-decoration-none">
+                                            <i className="bi bi-heart-fill me-3 text-warning"></i>
+                                            <span>Favorites</span>
+                                        </a>
+                                        <div className="d-flex align-item-center badge bg-warning">
+                                            <span className="me-2 text-dark">17</span>
                                             <i className="bi bi-arrow-right-circle-fill text-dark"></i>
                                         </div>
                                     </div>
