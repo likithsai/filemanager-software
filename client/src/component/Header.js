@@ -13,29 +13,38 @@ const Header = (props) => {
                     <ul class="list-group">
                         <li class="list-group-item text-white bg-dark px-0">
                             <div class="d-flex align-items-center justify-content-between">
-                                <div>
+                                <a href="/images" class="text-white text-decoration-none">
                                     <i class="bi bi-images me-3"></i>
                                     <span>Images</span>
+                                </a>
+                                <div class="d-flex align-item-center badge bg-secondary">
+                                    <span class="me-2">12</span>
+                                    <i class="bi bi-arrow-right-circle-fill text-white"></i>
                                 </div>
-                                <span class="badge bg-secondary">12</span>
                             </div>
                         </li>
                         <li class="list-group-item text-white bg-dark px-0">
                             <div class="d-flex align-items-center justify-content-between">
-                                <div>
+                                <a href="/videos" class="text-white text-decoration-none">
                                     <i class="bi bi-camera-reels me-3"></i>
                                     <span>Videos</span>
+                                </a>
+                                <div class="d-flex align-item-center badge bg-secondary">
+                                    <span class="me-2">463</span>
+                                    <i class="bi bi-arrow-right-circle-fill text-white"></i>
                                 </div>
-                                <span class="badge bg-secondary">463</span>
                             </div>
                         </li>
                         <li class="list-group-item text-white bg-dark px-0">
                             <div class="d-flex align-items-center justify-content-between">
-                                <div>
+                                <a href="/pdfs" class="text-white text-decoration-none">
                                     <i class="bi bi-file-earmark-pdf me-3"></i>
                                     <span>PDF</span>
+                                </a>
+                                <div class="d-flex align-item-center badge bg-secondary">
+                                    <span class="me-2">7</span>
+                                    <i class="bi bi-arrow-right-circle-fill text-white"></i>
                                 </div>
-                                <span class="badge bg-secondary">7</span>
                             </div>
                         </li>
                     </ul>
