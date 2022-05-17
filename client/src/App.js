@@ -22,10 +22,6 @@ const App = () => {
                                     <ReactPlayer url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' width="100%" height="100%" controls="true" />
                                     <div class="card-body">
                                         <p class="card-text fw-bold">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <div className="mb-3">
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> video</span>
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> Short movies</span>
-                                        </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-dark">9 MB</small>
                                             <small class="text-muted">Thu 15, 2019</small>
@@ -39,10 +35,6 @@ const App = () => {
                                     <ReactPlayer url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4' width="100%" height="100%" controls="true" />
                                     <div class="card-body">
                                         <p class="card-text fw-bold">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <div className="mb-3">
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> video</span>
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> Short movies</span>
-                                        </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-dark">9 MB</small>
                                             <small class="text-muted">Thu 15, 2019</small>
@@ -56,10 +48,6 @@ const App = () => {
                                     <img src="https://picsum.photos/200" width="100%" height="250" />
                                     <div class="card-body">
                                         <p class="card-text fw-bold">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <div className="mb-3">
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> video</span>
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> Short movies</span>
-                                        </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-dark">9 MB</small>
                                             <small class="text-muted">Thu 15, 2019</small>
@@ -73,10 +61,6 @@ const App = () => {
                                     <img src="https://picsum.photos/200" width="100%" height="250" />
                                     <div class="card-body">
                                         <p class="card-text fw-bold">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <div className="mb-3">
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> video</span>
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> Short movies</span>
-                                        </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-dark">9 MB</small>
                                             <small class="text-muted">Thu 15, 2019</small>
@@ -90,10 +74,6 @@ const App = () => {
                                     <img src="https://picsum.photos/200" width="100%" height="250" />
                                     <div class="card-body">
                                         <p class="card-text fw-bold">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <div className="mb-3">
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> video</span>
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> Short movies</span>
-                                        </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-dark">9 MB</small>
                                             <small class="text-muted">Thu 15, 2019</small>
@@ -107,10 +87,6 @@ const App = () => {
                                     <img src="https://picsum.photos/200" width="100%" height="250" />
                                     <div class="card-body">
                                         <p class="card-text fw-bold">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <div className="mb-3">
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> video</span>
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> Short movies</span>
-                                        </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-dark">9 MB</small>
                                             <small class="text-muted">Thu 15, 2019</small>
@@ -124,10 +100,6 @@ const App = () => {
                                     <img src="https://picsum.photos/200" width="100%" height="250" />
                                     <div class="card-body">
                                         <p class="card-text fw-bold">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <div className="mb-3">
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> video</span>
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> Short movies</span>
-                                        </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-dark">9 MB</small>
                                             <small class="text-muted">Thu 15, 2019</small>
@@ -141,10 +113,6 @@ const App = () => {
                                     <img src="https://picsum.photos/200" width="100%" height="250" />
                                     <div class="card-body">
                                         <p class="card-text fw-bold">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <div className="mb-3">
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> video</span>
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> Short movies</span>
-                                        </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-dark">9 MB</small>
                                             <small class="text-muted">Thu 15, 2019</small>
@@ -158,10 +126,6 @@ const App = () => {
                                     <img src="https://picsum.photos/200" width="100%" height="250" />
                                     <div class="card-body">
                                         <p class="card-text fw-bold">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <div className="mb-3">
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> video</span>
-                                            <span class="badge bg-secondary me-1"><i class="bi bi-tag-fill me-1"></i> Short movies</span>
-                                        </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-dark">9 MB</small>
                                             <small class="text-muted">Thu 15, 2019</small>
