@@ -6,7 +6,21 @@ const Cards = (props) => {
     return(
         <div key={props.uniqkey} className="col">
             <div className="card">
-                <ReactPlayer url={props.url} width="100%" height="100%" controls={true} />
+                <ReactPlayer 
+                    url={props.url} 
+                    width="100%" 
+                    height="100%" 
+                    controls={true}
+                    config={{ 
+                        file: {
+                            attributes: { 
+                                preload: "none",
+                                loop: true,
+                                poster: "https://www.w3schools.com/images/w3schools_green.jpg"
+                            },
+                            forceVideo: 'true'
+                        }
+                    }} />
                 <div className="card-body">
                     <div className="d-flex align-item-center justify-content-between mb-3">
                         <p className="card-text fw-bold text-elipsis">{props.title}</p>
