@@ -16,11 +16,21 @@ const Header = (props) => {
                                     <div className="d-flex align-items-center justify-content-between">
                                         <a href="/images" className="text-white text-decoration-none">
                                             <i className="bi bi-images me-3 text-warning"></i>
+                                            <span>All</span>
+                                        </a>
+                                        <div className="d-flex align-item-center badge bg-warning">
+                                            <span className="text-dark fw-bold">512</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li className="list-group-item text-white bg-dark px-0 border-0">
+                                    <div className="d-flex align-items-center justify-content-between">
+                                        <a href="/images" className="text-white text-decoration-none">
+                                            <i className="bi bi-images me-3 text-warning"></i>
                                             <span>Images</span>
                                         </a>
                                         <div className="d-flex align-item-center badge bg-warning">
-                                            <span className="me-2 text-dark">12</span>
-                                            <i className="bi bi-arrow-right-circle-fill text-dark"></i>
+                                            <span className="text-dark fw-bold">12</span>
                                         </div>
                                     </div>
                                 </li>
@@ -31,8 +41,7 @@ const Header = (props) => {
                                             <span>Videos</span>
                                         </a>
                                         <div className="d-flex align-item-center badge bg-warning">
-                                            <span className="me-2 text-dark">463</span>
-                                            <i className="bi bi-arrow-right-circle-fill text-dark"></i>
+                                            <span className="text-dark fw-bold">463</span>
                                         </div>
                                     </div>
                                 </li>
@@ -43,8 +52,7 @@ const Header = (props) => {
                                             <span>PDF</span>
                                         </a>
                                         <div className="d-flex align-item-center badge bg-warning">
-                                            <span className="me-2 text-dark">7</span>
-                                            <i className="bi bi-arrow-right-circle-fill text-dark"></i>
+                                            <span className="text-dark fw-bold">7</span>
                                         </div>
                                     </div>
                                 </li>
@@ -57,20 +65,18 @@ const Header = (props) => {
                                             <span>Categories</span>
                                         </a>
                                         <div className="d-flex align-item-center badge bg-warning">
-                                            <span className="me-2 text-dark">1</span>
-                                            <i className="bi bi-arrow-right-circle-fill text-dark"></i>
+                                            <span className="text-dark fw-bold">1</span>
                                         </div>
                                     </div>
                                 </li>
                                 <li className="list-group-item text-white bg-dark px-0 border-0">
                                     <div className="d-flex align-items-center justify-content-between">
                                         <a href="/pdfs" className="text-white text-decoration-none">
-                                            <i className="bi bi-heart-fill me-3 text-warning"></i>
+                                            <i className="bi bi-heart me-3 text-warning"></i>
                                             <span>Favorites</span>
                                         </a>
                                         <div className="d-flex align-item-center badge bg-warning">
-                                            <span className="me-2 text-dark">17</span>
-                                            <i className="bi bi-arrow-right-circle-fill text-dark"></i>
+                                            <span className="text-dark fw-bold">17</span>
                                         </div>
                                     </div>
                                 </li>
