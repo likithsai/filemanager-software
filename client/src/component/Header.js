@@ -16,17 +16,6 @@ const Header = (props) => {
                                     <div className="d-flex align-items-center justify-content-between">
                                         <a href="/images" className="text-white text-decoration-none">
                                             <i className="bi bi-images me-3 text-warning"></i>
-                                            <span>All</span>
-                                        </a>
-                                        <div className="d-flex align-item-center badge bg-warning">
-                                            <span className="text-dark fw-bold">512</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="list-group-item text-white bg-dark px-0 border-0">
-                                    <div className="d-flex align-items-center justify-content-between">
-                                        <a href="/images" className="text-white text-decoration-none">
-                                            <i className="bi bi-images me-3 text-warning"></i>
                                             <span>Images</span>
                                         </a>
                                         <div className="d-flex align-item-center badge bg-warning">

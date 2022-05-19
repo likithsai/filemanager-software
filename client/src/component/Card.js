@@ -6,21 +6,25 @@ const Cards = (props) => {
     return(
         <div key={props.uniqkey} className="col">
             <div className="card">
-                <ReactPlayer 
-                    url={props.url} 
-                    width="100%" 
-                    height="100%" 
-                    controls={true}
-                    config={{ 
-                        file: {
-                            attributes: { 
-                                preload: "none",
-                                loop: true,
-                                poster: "https://www.w3schools.com/images/w3schools_green.jpg"
-                            },
-                            forceVideo: 'true'
-                        }
-                    }} />
+                <div className='player-wrapper bg-dark'>
+                    <ReactPlayer
+                        className="video-player" 
+                        url={props.url} 
+                        width="100%" 
+                        height="100%" 
+                        controls={true}
+                        playinline={true}
+                        config={{ 
+                            file: {
+                                attributes: { 
+                                    preload: "none",
+                                    loop: true,
+                                    poster: "http://placekitten.com/200/300"
+                                },
+                                forceVideo: 'true'
+                            }
+                        }} />
+                </div>
                 <div className="card-body">
                     <div className="d-flex align-item-center justify-content-between mb-3">
                         <p className="card-text fw-bold text-elipsis">{props.title}</p>
