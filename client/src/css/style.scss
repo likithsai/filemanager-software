@@ -9,3 +9,11 @@
 .bb-orange {
     border-bottom: 1px solid orange;
 }
+
+.text-elipsis {
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

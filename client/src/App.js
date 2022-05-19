@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './component/Header';
 import Main from './component/Main';
+import Footer from './component/Footer';
 
 // import Footer from './component/Footer';
 
@@ -9,7 +10,7 @@ const App = () => {
         <div className="app">
             <Header title="Media Vault" />
             <Main />
-            {/* <Footer title="© likith sai"/> */}
+            <Footer title="© likith sai"/>
         </div>
     );
 }

@@ -57,6 +57,7 @@ const Header = (props) => {
                                     </div>
                                 </li>
                             </ul>
+                            <hr className="bb-orange" />
                             <ul className="list-group mt-4">
                                 <li className="list-group-item text-white bg-dark px-0 border-0">
                                     <div className="d-flex align-items-center justify-content-between">
