@@ -1,175 +1,34 @@
 //  Main.js
 
-import React from 'react';
-import ReactPlayer from 'react-player'
+import React, { useState, useEffect } from 'react';
+import Cards from './Card';
 
 const Main = (props) => {
+    const [ data, setData ] = useState([]);
+    
+    useEffect(() => {
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then((res) => res.json())
+            .then((json) => {
+                setData(json);
+            });
+    }, []);
+
     return (
         <main>
             <div className="album py-5 bg-light">
                 <div className="container px-4">
                     <div className="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
-                        <div className="col">
-                            <div className="card">
-                                <ReactPlayer url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' width="100%" height="100%" controls={true} />
-                                <div className="card-body">
-                                    <p className="card-text fw-bold text-elipsis">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div className="mb-4">
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#sa</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                    </div>
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <small className="text-dark">9 MB</small>
-                                        <small className="text-muted">Thu 15, 2019</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col">
-                            <div className="card">
-                                <ReactPlayer url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4' width="100%" height="100%" controls={true} />
-                                <div className="card-body">
-                                    <p className="card-text fw-bold text-elipsis">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div className="mb-4">
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#sa</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                    </div>
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <small className="text-dark">9 MB</small>
-                                        <small className="text-muted">Thu 15, 2019</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col">
-                            <div className="card">
-                                <img src="https://picsum.photos/200" width="100%" height="250" />
-                                <div className="card-body">
-                                    <p className="card-text fw-bold text-elipsis">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div className="mb-4">
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#sa</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                    </div>
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <small className="text-dark">9 MB</small>
-                                        <small className="text-muted">Thu 15, 2019</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col">
-                            <div className="card">
-                                <img src="https://picsum.photos/200" width="100%" height="250" />
-                                <div className="card-body">
-                                    <p className="card-text fw-bold text-elipsis">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div className="mb-4">
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#sa</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                    </div>
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <small className="text-dark">9 MB</small>
-                                        <small className="text-muted">Thu 15, 2019</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col">
-                            <div className="card">
-                                <img src="https://picsum.photos/200" width="100%" height="250" />
-                                <div className="card-body">
-                                    <p className="card-text fw-bold text-elipsis">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div className="mb-4">
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#sa</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                    </div>
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <small className="text-dark">9 MB</small>
-                                        <small className="text-muted">Thu 15, 2019</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col">
-                            <div className="card">
-                                <img src="https://picsum.photos/200" width="100%" height="250" />
-                                <div className="card-body">
-                                    <p className="card-text fw-bold text-elipsis">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div className="mb-4">
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#sa</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                    </div>
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <small className="text-dark">9 MB</small>
-                                        <small className="text-muted">Thu 15, 2019</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col">
-                            <div className="card">
-                                <img src="https://picsum.photos/200" width="100%" height="250" />
-                                <div className="card-body">
-                                    <p className="card-text fw-bold text-elipsis">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div className="mb-4">
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#sa</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                    </div>
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <small className="text-dark">9 MB</small>
-                                        <small className="text-muted">Thu 15, 2019</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col">
-                            <div className="card">
-                                <img src="https://picsum.photos/200" width="100%" height="250" />
-                                <div className="card-body">
-                                    <p className="card-text fw-bold text-elipsis">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div className="mb-4">
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#sa</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                    </div>
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <small className="text-dark">9 MB</small>
-                                        <small className="text-muted">Thu 15, 2019</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col">
-                            <div className="card">
-                                <img src="https://picsum.photos/200" width="100%" height="250" />
-                                <div className="card-body">
-                                    <p className="card-text fw-bold text-elipsis">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div className="mb-4">
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#sa</span></div>
-                                        <div class="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                                    </div>
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <small className="text-dark">9 MB</small>
-                                        <small className="text-muted">Thu 15, 2019</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    { 
+                        data.map((item) => 
+                            <Cards 
+                                title="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer." 
+                                url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                                filesize="9 MB"
+                                fileCreatedDate="Thu 15, 2019"
+                            />
+                        )
+                    }
                     </div>
                 </div>
             </div>
