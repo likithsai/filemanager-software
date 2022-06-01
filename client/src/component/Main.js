@@ -15,29 +15,35 @@ const Main = (props) => {
         <main>
             <div className="album py-5 bg-light">
                 <div className="container px-4">
-                    <div className="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
-                    { 
-                        props.dataItems.slice(indexOfFirstTodo, indexOfLastTodo).map((item) => 
-                            <Cards 
-                                uniqkey={item.filename}
-                                title={item.filename} 
-                                url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                                filesize="9 MB"
-                                fileCreatedDate="Thu 15, 2019"
-                            />
-                        )
+                    {
+                        (props.dataItems.length > 0) ? (
+                            <>
+                                <div className="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
+                                { 
+                                    props.dataItems.slice(indexOfFirstTodo, indexOfLastTodo).map((item) => 
+                                        <Cards 
+                                            uniqkey={item.filename}
+                                            title={item.filename} 
+                                            url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                                            filesize="9 MB"
+                                            fileCreatedDate="Thu 15, 2019"
+                                        />
+                                    )
+                                }
+                                </div>
+                                <Pagination
+                                    currentPage = {currentPage}
+                                    todosPerPage={todosPerPage}
+                                    totalTodos={props.dataItems.length}
+                                    paginate={(pageNumber) => {
+                                        setCurrentPage(pageNumber);
+                                    }}
+                                />
+                            </>
+                        ) 
+                        : <div class="alert alert-primary" role="alert">No Data!</div>
                     }
-                    </div>
                 </div>
-                
-                <Pagination
-                    currentPage = {currentPage}
-                    todosPerPage={todosPerPage}
-                    totalTodos={props.dataItems.length}
-                    paginate={(pageNumber) => {
-                        setCurrentPage(pageNumber);
-                    }}
-                />
             </div>
         </main>
     );
