@@ -40,7 +40,7 @@ if (process.argv[2] !== undefined) {
         console.log('\x1b[32m%s\x1b[0m', 'HTTP Server V1.0');
         console.log('File server for managing files', '\n');
         console.log('\x1b[43m SYSTEM INFO \x1b[0m\n');
-        console.log('\x1b[36m%s\x1b[0m', `URL:`, '\t', `\x1b[4mhttp://${SERVER}:${PORT}\x1b[0m`);
+        console.log('\x1b[36m%s\x1b[0m', `URL:`, '\t', `\x1b[4mhttp://${SERVER}:${PORT}/api\x1b[0m`);
         console.log('\x1b[36m%s\x1b[0m', `PATH:`, '\t', process.argv[2]);
         console.log('\x1b[36m%s\x1b[0m', `DATE:`, '\t', new Date(), '\n');
         console.log('\x1b[36m%s\x1b[0m', `OS:`, os.type());

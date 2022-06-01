@@ -5,20 +5,8 @@ import Cards from './Card';
 import Pagination from './Pagination';
 
 const Main = (props) => {
-    const [ data, setData ] = useState([]);
     const [ todosPerPage ] = useState(30);
     const [ currentPage, setCurrentPage ] = useState(1);
-
-    useEffect(() => {
-        fetch("http://localhost:3001/api")
-        // fetch("https://jsonplaceholder.typicode.com/users")
-            .then((res) => res.json())
-            .then((json) => {
-                setData(json);
-            });
-    }, []);
-
-
     //  pagination
     const indexOfLastTodo = currentPage * todosPerPage;
     const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
@@ -29,7 +17,7 @@ const Main = (props) => {
                 <div className="container px-4">
                     <div className="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
                     { 
-                        data.slice(indexOfFirstTodo, indexOfLastTodo).map((item) => 
+                        props.dataItems.slice(indexOfFirstTodo, indexOfLastTodo).map((item) => 
                             <Cards 
                                 uniqkey={item.filename}
                                 title={item.filename} 
@@ -45,7 +33,7 @@ const Main = (props) => {
                 <Pagination
                     currentPage = {currentPage}
                     todosPerPage={todosPerPage}
-                    totalTodos={data.length}
+                    totalTodos={props.dataItems.length}
                     paginate={(pageNumber) => {
                         setCurrentPage(pageNumber);
                     }}

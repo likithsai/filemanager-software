@@ -26,14 +26,14 @@ const Cards = (props) => {
                         }} />
                 </div>
                 <div className="card-body">
-                    <div className="d-flex align-item-center justify-content-between mb-3">
+                    <div className="d-flex align-item-center justify-content-between mb-1">
                         <p className="card-text fw-bold text-elipsis">{props.title}</p>
                     </div>
-                    <div className="mb-3">
+                    {/* <div className="mb-3">
                         <div className="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
                         <div className="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#sa</span></div>
                         <div className="badge bg-secondary me-1"><i className="bi bi-list me-2" /><span>#example</span></div>
-                    </div>
+                    </div> */}
                     <div className="d-flex justify-content-between align-items-center">
                         <small className="text-dark">{props.filesize}</small>
                         <small className="text-muted">{props.fileCreatedDate}</small>

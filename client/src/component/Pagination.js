@@ -11,8 +11,8 @@ const Pagination = ({ currentPage, todosPerPage, totalTodos, paginate }) => {
         <div className="mt-5">
             {/* <p className="text-center text-muted">Showing page {currentPage}</p> */}
             <ul className='pagination w-100 d-flex justify-content-center'>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
+                <li className="page-item">
+                    <a className="page-link" href="#" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
@@ -23,8 +23,8 @@ const Pagination = ({ currentPage, todosPerPage, totalTodos, paginate }) => {
                         </li>
                     ))
                 }
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
+                <li className="page-item">
+                    <a className="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

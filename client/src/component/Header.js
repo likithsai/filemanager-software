@@ -1,7 +1,17 @@
 //  Header
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Header = (props) => {
+    const [ imageCount, setImageCount ] = useState(props.dataItems.length);
+    const [ videoCount, setVideoCount ] = useState(props.dataItems.length);
+    const [ PDFCount, setPDFCount ] = useState(props.dataItems.length);
+
+    useEffect(() => {
+        setImageCount(props.dataItems.filter((t) => t.filetype.toString().split('\/')[0] === 'image').length);
+        setVideoCount(props.dataItems.filter((t) => t.filetype.toString().split('\/')[0] === 'video').length);
+        setPDFCount(props.dataItems.filter((t) => t.filetype.toString().split('\/')[1] === 'pdf').length);
+    }, [props.dataItems]);
+
     return (
         <header className="shadow-sm sticky-top bg-dark">
             <div className="collapse bb-orange" id="navbarHeader">
@@ -19,7 +29,7 @@ const Header = (props) => {
                                             <span>Images</span>
                                         </a>
                                         <div className="d-flex align-item-center badge bg-warning">
-                                            <span className="text-dark fw-bold">12</span>
+                                            <span className="text-dark fw-bold">{imageCount}</span>
                                         </div>
                                     </div>
                                 </li>
@@ -30,7 +40,7 @@ const Header = (props) => {
                                             <span>Videos</span>
                                         </a>
                                         <div className="d-flex align-item-center badge bg-warning">
-                                            <span className="text-dark fw-bold">463</span>
+                                            <span className="text-dark fw-bold">{videoCount}</span>
                                         </div>
                                     </div>
                                 </li>
@@ -41,7 +51,7 @@ const Header = (props) => {
                                             <span>PDF</span>
                                         </a>
                                         <div className="d-flex align-item-center badge bg-warning">
-                                            <span className="text-dark fw-bold">7</span>
+                                            <span className="text-dark fw-bold">{PDFCount}</span>
                                         </div>
                                     </div>
                                 </li>
