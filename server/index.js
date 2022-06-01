@@ -1,15 +1,15 @@
 const express = require('express');
 const path = require('path');
 const os = require('os');
-const mysql = require('mysql');
 const qrcode = require('qrcode-terminal');
 const mime = require('mime-types');
+const cors = require('cors');
 const file = require('./src/includes/files');
 const utils = require('./src/includes/utils');
 
 const app = express();
 const SERVER = utils.getLocalIPAddress() || 'localhost';
-const PORT = process.env.port || 3000;
+const PORT = process.env.port || 3001;
 var JSONList = [];
 
 //  check if argument is passed or not
@@ -32,6 +32,8 @@ if (process.argv[2] !== undefined) {
     
     //  set dynamic public path for serving files
     app.use(express.static(process.argv[2]));
+    //  avoid CORS
+    app.use(cors());
 
     app.listen(PORT, SERVER, function (req, res) {
         console.log('\x1b[32m%s\x1b[0m', 'HTTP Server V1.0');

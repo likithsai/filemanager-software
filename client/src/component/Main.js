@@ -6,11 +6,12 @@ import Pagination from './Pagination';
 
 const Main = (props) => {
     const [ data, setData ] = useState([]);
-    const [ todosPerPage ] = useState(9);
+    const [ todosPerPage ] = useState(30);
     const [ currentPage, setCurrentPage ] = useState(1);
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users")
+        fetch("http://192.168.0.100:3001/api")
+        // fetch("https://jsonplaceholder.typicode.com/users")
             .then((res) => res.json())
             .then((json) => {
                 setData(json);
@@ -30,8 +31,8 @@ const Main = (props) => {
                     { 
                         data.slice(indexOfFirstTodo, indexOfLastTodo).map((item) => 
                             <Cards 
-                                uniqkey={item.id}
-                                title={item.name} 
+                                uniqkey={item.filename}
+                                title={item.filename} 
                                 url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
                                 filesize="9 MB"
                                 fileCreatedDate="Thu 15, 2019"
@@ -44,7 +45,7 @@ const Main = (props) => {
                 <Pagination
                     currentPage = {currentPage}
                     todosPerPage={todosPerPage}
-                    totalTodos={10}
+                    totalTodos={data.length}
                     paginate={(pageNumber) => {
                         setCurrentPage(pageNumber);
                     }}
