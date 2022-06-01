@@ -8,7 +8,8 @@ const file = require('./src/includes/files');
 const utils = require('./src/includes/utils');
 
 const app = express();
-const SERVER = utils.getLocalIPAddress() || 'localhost';
+// const SERVER = utils.getLocalIPAddress() || 'localhost';
+const SERVER = 'localhost';
 const PORT = process.env.port || 3001;
 var JSONList = [];
 
@@ -26,9 +27,9 @@ if (process.argv[2] !== undefined) {
     });
 
     //  import bootstrap & jQuery
-    app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); 
-    app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); 
-    app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); 
+    // app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); 
+    // app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); 
+    // app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); 
     
     //  set dynamic public path for serving files
     app.use(express.static(process.argv[2]));
@@ -50,10 +51,10 @@ if (process.argv[2] !== undefined) {
         qrcode.generate(`http://${SERVER}:${PORT}`, {small: true});
     });
 
-    app.get('/', function(request, response){
-        utils.printLog(request);
-        response.sendFile(path.join(__dirname + '/views/index.html'));
-    });
+    // app.get('/', function(request, response){
+    //     utils.printLog(request);
+    //     response.sendFile(path.join(__dirname + '/views/index.html'));
+    // });
 
     app.get('*', function(request, response, next){
         utils.printLog(request);

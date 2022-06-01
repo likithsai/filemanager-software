@@ -10,7 +10,7 @@ const Main = (props) => {
     const [ currentPage, setCurrentPage ] = useState(1);
 
     useEffect(() => {
-        fetch("http://192.168.0.100:3001/api")
+        fetch("http://localhost:3001/api")
         // fetch("https://jsonplaceholder.typicode.com/users")
             .then((res) => res.json())
             .then((json) => {

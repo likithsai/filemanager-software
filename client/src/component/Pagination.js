@@ -9,7 +9,7 @@ const Pagination = ({ currentPage, todosPerPage, totalTodos, paginate }) => {
 
     return (
         <div className="mt-5">
-            <p className="text-center text-muted">Show {todosPerPage} items of {totalTodos}</p>
+            {/* <p className="text-center text-muted">Showing page {currentPage}</p> */}
             <ul className='pagination w-100 d-flex justify-content-center'>
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Previous">
