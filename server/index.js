@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const os = require('os');
+const mysql = require('mysql');
 const qrcode = require('qrcode-terminal');
 const mime = require('mime-types');
 const file = require('./src/includes/files');
