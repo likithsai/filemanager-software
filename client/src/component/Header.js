@@ -57,7 +57,7 @@ const Header = (props) => {
                                 </li>
                             </ul>
                             
-                            <ul className="list-group mt-4">
+                            {/* <ul className="list-group mt-4">
                                 <li className="list-group-item text-white bg-dark px-0 border-0">
                                     <div className="d-flex align-items-center justify-content-between">
                                         <a href="/pdfs" className="text-white text-decoration-none">
@@ -80,7 +80,7 @@ const Header = (props) => {
                                         </div>
                                     </div>
                                 </li>
-                            </ul>
+                            </ul> */}
                         </div>
                     </div>
                 </div>

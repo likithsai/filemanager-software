@@ -21,7 +21,7 @@ const App = () => {
         <div className="app">
             <Header title="Media Vault" dataItems={data} />
             <Main dataItems={data} />
-            <Footer title="© likith sai"/>
+            {/* <Footer title="© likith sai"/> */}
         </div>
     );
 }
