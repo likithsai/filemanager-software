@@ -8,8 +8,7 @@ const file = require('./src/includes/files');
 const utils = require('./src/includes/utils');
 
 const app = express();
-// const SERVER = utils.getLocalIPAddress() || 'localhost';
-const SERVER = 'localhost';
+const SERVER = utils.getLocalIPAddress() || 'localhost';
 const PORT = process.env.port || 3001;
 const JSONFILE = 'data/fileData.json';
 var JSONList = [];
@@ -23,6 +22,7 @@ if (process.argv[2] !== undefined) {
             filename: path.basename(filePath),
             filetype: mime.lookup(filePath),
             filepath: filePath.replace(process.argv[2], `http://${SERVER}:${PORT}`),
+            thumbnail: '',
             filesize: utils.bytesToSizes(stat.size),
             filehash: file.calculateHashOfFile(filePath),
             filecreated: stat.birthtime
@@ -33,7 +33,11 @@ if (process.argv[2] !== undefined) {
     osDetails.push({
         'path': process.argv[2],
         'os': os.type(),
-        'arch': os.arch()
+        'arch': os.arch(),
+        'auth': [{
+            'enabled': true,
+            'passkey': '123456'
+        }]
     });
 
     //  merge into JSONList
