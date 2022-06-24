@@ -16,8 +16,10 @@ var JSONList = [];
 
 //  check if argument is passed or not
 if (process.argv[2] !== undefined) {
+    let filesList = [];
+
     file.walkSync(process.argv[2], function (filePath, stat) {
-        JSONList.push({
+        filesList.push({
             filename: path.basename(filePath),
             filetype: mime.lookup(filePath),
             filepath: filePath.replace(process.argv[2], `http://${SERVER}:${PORT}`),
@@ -26,6 +28,9 @@ if (process.argv[2] !== undefined) {
             filecreated: stat.birthtime
         });
     });
+
+    //  add extra data to JSONList
+    JSONList.push({"files" : filesList});
 
     //  import bootstrap & jQuery
     app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); 
