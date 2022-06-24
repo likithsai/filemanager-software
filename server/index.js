@@ -51,10 +51,10 @@ if (process.argv[2] !== undefined) {
         qrcode.generate(`http://${SERVER}:${PORT}`, {small: true});
     });
 
-    // app.get('/', function(request, response){
-    //     utils.printLog(request);
-    //     response.sendFile(path.join(__dirname + '/views/index.html'));
-    // });
+    app.get('/', function(request, response){
+        utils.printLog(request);
+        response.sendFile(path.join(__dirname + '/views/index.html'));
+    });
 
     app.get('*', function(request, response, next){
         utils.printLog(request);
