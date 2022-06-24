@@ -16,7 +16,7 @@ var JSONList = [];
 
 //  check if argument is passed or not
 if (process.argv[2] !== undefined) {
-    let filesList = [];
+    let filesList = [], osDetails = [];
 
     file.walkSync(process.argv[2], function (filePath, stat) {
         filesList.push({
@@ -29,8 +29,18 @@ if (process.argv[2] !== undefined) {
         });
     });
 
-    //  add extra data to JSONList
-    JSONList.push({"files" : filesList});
+    //  OS details
+    osDetails.push({
+        'path': process.argv[2],
+        'os': os.type(),
+        'arch': os.arch()
+    });
+
+    //  merge into JSONList
+    JSONList.push({
+        "details" : osDetails,
+        "files" : filesList
+    });
 
     //  import bootstrap & jQuery
     app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); 
