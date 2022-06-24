@@ -15,8 +15,16 @@ var JSONList = [];
 
 //  check if argument is passed or not
 if (process.argv[2] !== undefined) {
-    let filesList = [], osDetails = [];
+    let filesList = [], systemDetails = [];
 
+    //  system details
+    systemDetails.push({
+        'path': process.argv[2],
+        'os': os.type(),
+        'arch': os.arch()
+    });
+
+    //  file list
     file.walkSync(process.argv[2], function (filePath, stat) {
         filesList.push({
             filename: path.basename(filePath),
@@ -29,20 +37,9 @@ if (process.argv[2] !== undefined) {
         });
     });
 
-    //  OS details
-    osDetails.push({
-        'path': process.argv[2],
-        'os': os.type(),
-        'arch': os.arch(),
-        'auth': [{
-            'enabled': true,
-            'passkey': '123456'
-        }]
-    });
-
     //  merge into JSONList
     JSONList.push({
-        "details" : osDetails,
+        "sysinfo" : systemDetails,
         "files" : filesList
     });
 
@@ -82,9 +79,9 @@ if (process.argv[2] !== undefined) {
     });
 
     app.get('/api', function (req, res) {
-        res.setHeader('Content-Type', 'application/json').send(JSON.stringify(utils.uniqueArray(JSONList, 'filehash')));
+        // res.setHeader('Content-Type', 'application/json').send(JSON.stringify(utils.uniqueArray(JSONList, 'filehash')));
         file.writeJSONdata(JSONFILE, JSON.stringify(utils.uniqueArray(JSONList, 'filehash')));
-        // res.setHeader('Content-Type', 'application/json').send(file.readJSONData(JSONFILE));
+        res.setHeader('Content-Type', 'application/json').sendFile(path.join(__dirname + '/' + JSONFILE));
     });
 
     //  show error page for bad request
