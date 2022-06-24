@@ -11,6 +11,7 @@ const app = express();
 // const SERVER = utils.getLocalIPAddress() || 'localhost';
 const SERVER = 'localhost';
 const PORT = process.env.port || 3001;
+const JSONFILE = 'data/fileData.json';
 var JSONList = [];
 
 //  check if argument is passed or not
@@ -27,10 +28,10 @@ if (process.argv[2] !== undefined) {
     });
 
     //  import bootstrap & jQuery
-    // app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); 
-    // app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); 
-    // app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); 
-    
+    app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); 
+    app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); 
+    app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+
     //  set dynamic public path for serving files
     app.use(express.static(process.argv[2]));
     //  avoid CORS
@@ -63,6 +64,8 @@ if (process.argv[2] !== undefined) {
 
     app.get('/api', function (req, res) {
         res.setHeader('Content-Type', 'application/json').send(JSON.stringify(utils.uniqueArray(JSONList, 'filehash')));
+        file.writeJSONdata(JSONFILE, JSON.stringify(utils.uniqueArray(JSONList, 'filehash')));
+        // res.setHeader('Content-Type', 'application/json').send(file.readJSONData(JSONFILE));
     });
 
     //  show error page for bad request

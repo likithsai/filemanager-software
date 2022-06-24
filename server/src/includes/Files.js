@@ -19,6 +19,24 @@ const walkSync = function(currentDirPath, callback) {
     });
 }
 
+const writeJSONdata = (filePath, data) => {
+    fs.writeFile(filePath, data, 'utf8', (err) => {
+        if (err) throw err;
+    });
+}
+
+//  function to read JSON files
+const readJSONData = (filePath) => {
+    if(fs.existsSync(filePath)) {
+        fs.readFileSync(filePath, (err, data) => {
+            if (err) throw err;
+            console.log(data.stringify());
+            return data;
+        });
+    } else {
+        console.log('no data');
+    }
+}
 
 //  function to check if folder exist
 const existFolder = function(path) {
@@ -49,5 +67,5 @@ const myLogger = new Console({
 });
 
 module.exports = {
-    walkSync, existFolder, createFolder, calculateHashOfFile, myLogger
+    walkSync, existFolder, createFolder, calculateHashOfFile, myLogger, writeJSONdata, readJSONData
 }
