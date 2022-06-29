@@ -6,6 +6,7 @@ const mime = require('mime-types');
 const cors = require('cors');
 const file = require('./src/includes/files');
 const utils = require('./src/includes/utils');
+const ffmpeg = require('./src/includes/ffmpeg');
 
 const app = express();
 const SERVER = utils.getLocalIPAddress() || 'localhost';
@@ -30,7 +31,20 @@ if (process.argv[2] !== undefined) {
             filename: path.basename(filePath),
             filetype: mime.lookup(filePath),
             filepath: filePath.replace(process.argv[2], `http://${SERVER}:${PORT}`),
-            thumbnail: '',
+            thumbnail: (mime.lookup(filePath).toString().includes('video')) ? 
+                // ffmpeg(filePath).screenshots({
+                //     count: 100,
+                //     timestamps: [30.5, '20%'],
+                //     filename: 'thumbnail-at-%s-seconds.png',
+                //     folder: './public/',
+                //     // size: '320x240'
+                // })
+                
+                ffmpeg(filePath)
+                    .noAudio()
+                    .outputOption("-vf", "scale=320:-1:flags=lanczos")
+                    .save(`./public/${path.basename(filePath)}.gif`)
+            : '',
             filesize: utils.bytesToSizes(stat.size),
             filehash: file.calculateHashOfFile(filePath),
             filecreated: stat.birthtime
@@ -57,7 +71,7 @@ if (process.argv[2] !== undefined) {
         console.log('\x1b[32m%s\x1b[0m', 'HTTP Server V1.0');
         console.log('File server for managing files', '\n');
         console.log('\x1b[43m SYSTEM INFO \x1b[0m\n');
-        console.log('\x1b[36m%s\x1b[0m', `URL:`, '\t', `\x1b[4mhttp://${SERVER}:${PORT}/api\x1b[0m`);
+        console.log('\x1b[36m%s\x1b[0m', `URL:`, '\t', `\x1b[4mhttp://${SERVER}:${PORT}/\x1b[0m`);
         console.log('\x1b[36m%s\x1b[0m', `PATH:`, '\t', process.argv[2]);
         console.log('\x1b[36m%s\x1b[0m', `DATE:`, '\t', new Date(), '\n');
         console.log('\x1b[36m%s\x1b[0m', `OS:`, os.type());
