@@ -41,10 +41,12 @@ if (process.argv[2] !== undefined) {
                 // })
                 
                 ffmpeg(filePath)
+                    .setStartTime(5)
+                    .setDuration(10)
                     .noAudio()
                     .outputOption("-vf", "scale=320:-1:flags=lanczos")
                     .save(`./public/${path.basename(filePath)}.gif`)
-            : '',
+            : null,
             filesize: utils.bytesToSizes(stat.size),
             filehash: file.calculateHashOfFile(filePath),
             filecreated: stat.birthtime
@@ -93,9 +95,9 @@ if (process.argv[2] !== undefined) {
     });
 
     app.get('/api', function (req, res) {
-        // res.setHeader('Content-Type', 'application/json').send(JSON.stringify(utils.uniqueArray(JSONList, 'filehash')));
-        file.writeJSONdata(JSONFILE, JSON.stringify(utils.uniqueArray(JSONList, 'filehash')));
-        res.setHeader('Content-Type', 'application/json').sendFile(path.join(__dirname + '/' + JSONFILE));
+        res.setHeader('Content-Type', 'application/json').send(JSON.stringify(utils.uniqueArray(JSONList, 'filehash')));
+        // file.writeJSONdata(JSONFILE, JSON.stringify(utils.uniqueArray(JSONList, 'filehash')));
+        // res.setHeader('Content-Type', 'application/json').sendFile(path.join(__dirname + '/' + JSONFILE));
     });
 
     //  show error page for bad request
