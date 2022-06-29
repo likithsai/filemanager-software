@@ -11,7 +11,6 @@ const ffmpeg = require('./src/includes/ffmpeg');
 const app = express();
 const SERVER = utils.getLocalIPAddress() || 'localhost';
 const PORT = process.env.port || 3001;
-const JSONFILE = 'data/fileData.json';
 var JSONList = [];
 
 //  check if argument is passed or not
@@ -27,26 +26,30 @@ if (process.argv[2] !== undefined) {
 
     //  file list
     file.walkSync(process.argv[2], function (filePath, stat) {
+        var tempFile = '';
+        if(mime.lookup(filePath).toString().includes('video')) {
+            
+            tempFile = `./data/thumbnails/${Date.now()}.gif`;
+            if(!file.existFolder('./data/thumbnails/')) {
+                file.createFolder('./data/thumbnails');
+            }
+
+            ffmpeg(filePath)
+                .setStartTime(5)
+                .setDuration(10)
+                .noAudio()
+                .outputOption(
+                    '-q:v', '8',
+                    "-vf", "scale=320:-1:flags=lanczos"
+                )
+                .save(tempFile)
+        }
+
         filesList.push({
             filename: path.basename(filePath),
             filetype: mime.lookup(filePath),
             filepath: filePath.replace(process.argv[2], `http://${SERVER}:${PORT}`),
-            thumbnail: (mime.lookup(filePath).toString().includes('video')) ? 
-                // ffmpeg(filePath).screenshots({
-                //     count: 100,
-                //     timestamps: [30.5, '20%'],
-                //     filename: 'thumbnail-at-%s-seconds.png',
-                //     folder: './public/',
-                //     // size: '320x240'
-                // })
-                
-                ffmpeg(filePath)
-                    .setStartTime(5)
-                    .setDuration(10)
-                    .noAudio()
-                    .outputOption("-vf", "scale=320:-1:flags=lanczos")
-                    .save(`./public/${path.basename(filePath)}.gif`)
-            : null,
+            thumbnail: tempFile.replace('./data', `http://${SERVER}:${PORT}`),
             filesize: utils.bytesToSizes(stat.size),
             filehash: file.calculateHashOfFile(filePath),
             filecreated: stat.birthtime
@@ -63,6 +66,7 @@ if (process.argv[2] !== undefined) {
     app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); 
     app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); 
     app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+    app.use('/thumbnails', express.static('./data/thumbnails'));
 
     //  set dynamic public path for serving files
     app.use(express.static(process.argv[2]));
@@ -96,8 +100,6 @@ if (process.argv[2] !== undefined) {
 
     app.get('/api', function (req, res) {
         res.setHeader('Content-Type', 'application/json').send(JSON.stringify(utils.uniqueArray(JSONList, 'filehash')));
-        // file.writeJSONdata(JSONFILE, JSON.stringify(utils.uniqueArray(JSONList, 'filehash')));
-        // res.setHeader('Content-Type', 'application/json').sendFile(path.join(__dirname + '/' + JSONFILE));
     });
 
     //  show error page for bad request
