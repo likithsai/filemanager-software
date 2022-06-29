@@ -59,14 +59,17 @@ if (process.argv[2] !== undefined) {
     //  merge into JSONList
     JSONList.push({
         "sysinfo" : systemDetails,
-        "files" : filesList
+        "fileinfo" : [{
+            "filecount": filesList.length,
+            "fileitems": filesList
+        }]
     });
 
     //  import bootstrap & jQuery
     app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); 
     app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); 
     app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
-    app.use('/thumbnails', express.static('./data/thumbnails'));
+    app.use('/thumbnails', express.static(__dirname + './data/thumbnails'));
 
     //  set dynamic public path for serving files
     app.use(express.static(process.argv[2]));
@@ -83,7 +86,7 @@ if (process.argv[2] !== undefined) {
         console.log('\x1b[36m%s\x1b[0m', `OS:`, os.type());
         console.log('\x1b[36m%s\x1b[0m', `Archtecture:`, os.arch());
         console.log('\x1b[36m%s\x1b[0m', `RAM:`, utils.bytesToSizes(os.freemem()) + '/' + utils.bytesToSizes(os.totalmem()), '\n');
-        console.log(`\x1b[43m ${JSONList.length} files scanned, ${JSONList.length - utils.uniqueArray(JSONList, 'filehash').length} Duplicates found. \x1b[0m`);
+        console.log(`\x1b[43m ${JSONList[0].fileinfo[0].fileitems.length} files scanned, ${JSONList[0].fileinfo[0].fileitems.length - utils.uniqueArray(JSONList[0].fileinfo[0].fileitems, 'filehash').length} Duplicates found. \x1b[0m`);
         console.log('\x1b[43m Press CNTRL+C to stop the server ... \x1b[0m\n');
         qrcode.generate(`http://${SERVER}:${PORT}`, {small: true});
     });
