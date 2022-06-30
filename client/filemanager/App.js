@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  useWindowDimensions,
-  StyleSheet,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  FlatList,
-  Image,
-} from "react-native";
+import { View, useWindowDimensions, StyleSheet, SafeAreaView, Text, TouchableOpacity, FlatList, Image } from "react-native";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
