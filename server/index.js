@@ -29,7 +29,7 @@ if (process.argv[2] !== undefined) {
         var tempFile = '';
         if(mime.lookup(filePath).toString().includes('video')) {
             
-            tempFile = `./data/thumbnails/${Date.now()}.gif`;
+            tempFile = `./data/thumbnails/${file.calculateHashOfFile(filePath)}.gif`;
             if(!file.existFolder('./data/thumbnails/')) {
                 file.createFolder('./data/thumbnails');
             }
@@ -39,8 +39,10 @@ if (process.argv[2] !== undefined) {
                 .setDuration(10)
                 .noAudio()
                 .outputOption(
+                    "-ss", "5",
+                    "-t","5",
                     '-q:v', '8',
-                    "-vf", "scale=320:-1:flags=lanczos"
+                    // "-vf", "scale=320:-1:flags=lanczos"
                 )
                 .save(tempFile)
         }
@@ -69,7 +71,7 @@ if (process.argv[2] !== undefined) {
     app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); 
     app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); 
     app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
-    app.use('/thumbnails', express.static(__dirname + './data/thumbnails'));
+    app.use('/thumbnails', express.static(__dirname + '/data/thumbnails'));
 
     //  set dynamic public path for serving files
     app.use(express.static(process.argv[2]));
