@@ -1,7 +1,6 @@
 const express = require('express');
 const os = require('os');
 const cors = require('cors');
-const ffmpeg = require('./src/includes/ffmpeg');
 const file = require('./src/includes/files');
 const utils = require('./src/includes/utils');
 const qrcode = require('qrcode-terminal');
@@ -34,23 +33,11 @@ if (process.argv[2] !== undefined) {
         }
 
         if(mime.lookup(filePath).toString().includes('video')) {
-            
             tempFile = `./data/thumbnails/${file.calculateHashOfFile(filePath)}.gif`;
-            if(!file.existFolder('./data/thumbnails/')) {
-                file.createFolder('./data/thumbnails');
-            }
-
-            ffmpeg(filePath)
-                .setStartTime(5)
-                .setDuration(10)
-                .noAudio()
-                .outputOption(
-                    "-ss", "5",
-                    "-t","5",
-                    '-q:v', '8',
-                    // "-vf", "scale=320:-1:flags=lanczos"
-                )
-                .save(tempFile)
+            utils.generateThumbnailFromVideo(filePath, tempFile);
+        } else if(mime.lookup(filePath).toString().includes('pdf')) {
+            tempFile = `./data/thumbnails/${file.calculateHashOfFile(filePath)}.jpg`;
+            utils.generateThumbnailFromPDF(filePath, tempFile);
         }
 
         filesList.push({

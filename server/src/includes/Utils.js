@@ -2,6 +2,7 @@
 //  contains utility functions
 
 const os = require("os");
+const ffmpeg = require('./ffmpeg.js');
 const { myLogger } = require("./Files.js");
 
 const bytesToSizes = function(bytes) {
@@ -29,6 +30,25 @@ const printLog = function(req) {
     myLogger.log(JSON.stringify(logs));
 }
 
+// function to generate first page image from PDF
+const generateThumbnailFromPDF = function(inputFile, outputFile) {
+}
+
+//  function to generate thumbnail from video
+const generateThumbnailFromVideo = function(inputFile, outputFile) {
+    ffmpeg(inputFile)
+        .setStartTime(5)
+        .setDuration(10)
+        .noAudio()
+        .outputOption(
+            "-ss", "5",
+            "-t","5",
+            '-q:v', '8',
+            // "-vf", "scale=320:-1:flags=lanczos"
+        )
+        .save(outputFile);
+}
+
 module.exports = {
-    bytesToSizes, getLocalIPAddress, uniqueArray, printLog
+    bytesToSizes, getLocalIPAddress, uniqueArray, printLog, generateThumbnailFromPDF, generateThumbnailFromVideo
 }
