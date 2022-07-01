@@ -1,12 +1,12 @@
 const express = require('express');
-const path = require('path');
 const os = require('os');
-const qrcode = require('qrcode-terminal');
-const mime = require('mime-types');
 const cors = require('cors');
+const ffmpeg = require('./src/includes/ffmpeg');
 const file = require('./src/includes/files');
 const utils = require('./src/includes/utils');
-const ffmpeg = require('./src/includes/ffmpeg');
+const qrcode = require('qrcode-terminal');
+const mime = require('mime-types');
+const path = require('path');
 
 const app = express();
 const SERVER = utils.getLocalIPAddress() || 'localhost';
@@ -27,6 +27,12 @@ if (process.argv[2] !== undefined) {
     //  file list
     file.walkSync(process.argv[2], function (filePath, stat) {
         var tempFile = '';
+
+        //  check if thumbnail folder exist or not
+        if(!file.existFolder('./data/thumbnails/')) {
+            file.createFolder('./data/thumbnails');
+        }
+
         if(mime.lookup(filePath).toString().includes('video')) {
             
             tempFile = `./data/thumbnails/${file.calculateHashOfFile(filePath)}.gif`;
@@ -51,7 +57,7 @@ if (process.argv[2] !== undefined) {
             filename: path.basename(filePath),
             filetype: mime.lookup(filePath),
             filepath: filePath.replace(process.argv[2], `http://${SERVER}:${PORT}`),
-            thumbnail: tempFile.replace('./data', `http://${SERVER}:${PORT}`),
+            thumbnail: (mime.lookup(filePath).toString().includes("video") || mime.lookup(filePath).toString().includes("pdf")) ? tempFile.replace('./data', `http://${SERVER}:${PORT}`) : filePath,
             filesize: utils.bytesToSizes(stat.size),
             filehash: file.calculateHashOfFile(filePath),
             filecreated: stat.birthtime
