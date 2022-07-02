@@ -96,7 +96,7 @@ const renderTabBar = (props) => (
           color,
           margin: 8,
           color: focused ? "#000" : "#999",
-          fontWeight: focused ? "bold" : "",
+          fontWeight: focused ? "bold" : "normal",
         }}
       >
         {route.title.toUpperCase()}
